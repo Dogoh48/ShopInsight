@@ -12,14 +12,13 @@ ShopInsight is a data analysis and visualization tool designed to provide valuab
 
 To install Project Name, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/yourusername/yourproject.git`
-2. Navigate to the project directory: `cd ShopInsight`
+1. Clone the repository: `git clone [https://github.com/yourusername/yourproject.git](https://github.com/Dogoh48/ShopperTrends-Analyzer.git)`
+2. Navigate to the project directory: `cd ShopperTrends-Analyzer`
 3. Install dependencies: `pip install -r requirements.txt`
 
 ## Usage
 
 To run Project Name, follow these steps:
 
-1. Navigate to the project directory: `cd ShopInsight`
-2. Navigate to the script folder: `cd Scripts`
-3. Run the application: `python app.py`
+1. Navigate to the script folder: `cd Scripts`
+2. Run the application: `python app.py`
