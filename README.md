@@ -21,4 +21,5 @@ To install Project Name, follow these steps:
 To run Project Name, follow these steps:
 
 1. Navigate to the project directory: `cd ShopInsight`
-2. Run the application: `python app.py`
+2. Navigate to the script folder: `cd Scripts`
+3. Run the application: `python app.py`
