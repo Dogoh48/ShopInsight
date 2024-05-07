@@ -14,7 +14,37 @@ class DashboardUI:
         self.controller = controller
         self.master.geometry('1024x600')
         self.master.title('ShopperTrends Analyzer')
+        self.current_page = "Home"
         self.init_components()
+
+    def init_home_page(self):
+        """Initialize the Home page UI components."""
+        self.current_page = "Home"
+        self.init_home_components()
+
+    def init_products_page(self):
+        """Initialize the Products page UI components."""
+        self.current_page = "Products"
+        self.init_product_components()
+
+    def switch_to_home_page(self):
+        """Switch to the Home page."""
+        if self.current_page != "Home":
+            self.destroy_current_page()
+            self.init_home_page()
+
+    def switch_to_products_page(self):
+        """Switch to the Products page."""
+        if self.current_page != "Products":
+            self.destroy_current_page()
+            self.init_products_page()
+
+    def destroy_current_page(self):
+        """Destroy the current page UI components."""
+        if self.middle_frame:
+            self.middle_frame.destroy()
+        if self.shipping_frame:
+            self.shipping_frame.destroy()
 
     def init_components(self):
         """Initialize UI components."""
@@ -22,6 +52,15 @@ class DashboardUI:
         self.create_sidebar()
         self.create_graph_area()
         self.update_graphs()
+
+    def init_home_components(self):
+        """Initialize UI components."""
+        self.create_graph_area()
+        self.update_graphs()
+
+    def init_product_components(self):
+        """Initialize UI components."""
+        pass
 
     def load_image(self, filename):
         """Load image from a specified folder."""
@@ -62,9 +101,9 @@ class DashboardUI:
         btn_box_frame.pack(fill=tk.BOTH, padx=10)
         filter_box_frame = tk.Frame(frame, bg='black')
         filter_box_frame.pack(fill=tk.BOTH, padx=10, pady=10, expand=True)
-        home_btn = tk.Button(btn_box_frame, text=' 🏠 Home', bg='black', fg='white', font=('Bold', 12), borderwidth=0, highlightthickness=0, anchor='w')
+        home_btn = tk.Button(btn_box_frame, text=' 🏠 Home', bg='black', fg='white', font=('Bold', 12), borderwidth=0, highlightthickness=0, anchor='w', command=self.switch_to_home_page)
         home_btn.pack(fill=tk.X, pady=10)
-        products_btn = tk.Button(btn_box_frame, text=' 📦 Products', bg='black', fg='white', font=('Bold', 12), borderwidth=0, highlightthickness=0, anchor='w')
+        products_btn = tk.Button(btn_box_frame, text=' 📦 Products', bg='black', fg='white', font=('Bold', 12), borderwidth=0, highlightthickness=0, anchor='w', command=self.switch_to_products_page)
         products_btn.pack(fill=tk.X, pady=10)
         
         # Return to Default button
