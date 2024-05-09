@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from graph import GraphManager
 from page import HomePage, ProductsPage
 
 class DashboardUI:
@@ -14,6 +13,7 @@ class DashboardUI:
         self.app.title('ShopperTrends Analyzer')
         self.current_page = "Home"
         self.init_components()
+        self.graph_manager = GraphManager(self.app, self.model, self.controller)
         self.home_page = HomePage(app, controller, model, self)
         self.products_page = ProductsPage(app, controller, model, self)
 
@@ -105,59 +105,6 @@ class DashboardUI:
         self.season_var = tk.StringVar(value='All')
         self.season_dropdown = ttk.Combobox(filter_box_frame, textvariable=self.season_var, values=season_options, state='readonly')
         self.season_dropdown.pack(anchor='w', padx=10)
-
-    def create_graph_area(self):
-        """Create the area for displaying graphs."""
-        self.middle_frame = tk.Frame(self.app, bg='#282434')
-        self.middle_frame.pack(expand=True, fill=tk.BOTH)
-        self.create_category_graph()
-        self.create_gender_graph()
-        self.create_subscription_graph()
-        self.create_shipping_graph()
-
-    def create_category_graph(self):
-        self.category_frame = tk.Frame(self.middle_frame, bg='#282434')
-        self.category_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        self.fig_category, self.ax_category = plt.subplots(figsize=(6, 3), facecolor='#282434')
-        self.ax_category.tick_params(colors='white')
-        for spine in self.ax_category.spines.values():
-            spine.set_edgecolor('white')
-        self.canvas_category = FigureCanvasTkAgg(self.fig_category, master=self.category_frame)
-        self.canvas_category.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
-        self.canvas_category.draw()
-
-    def create_gender_graph(self):
-        self.gender_frame = tk.Frame(self.middle_frame, bg='#282434')
-        self.gender_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        self.fig_gender, self.ax_gender = plt.subplots(figsize=(6, 3), facecolor='#282434')
-        self.ax_gender.tick_params(colors='white')
-        for spine in self.ax_gender.spines.values():
-            spine.set_edgecolor('white')
-        self.canvas_gender = FigureCanvasTkAgg(self.fig_gender, master=self.gender_frame)
-        self.canvas_gender.draw()
-        self.canvas_gender.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
-
-    def create_subscription_graph(self):
-        self.subscription_frame = tk.Frame(self.middle_frame, bg='#282434')
-        self.subscription_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        self.fig_subscription, self.axs_subscription = plt.subplots(figsize=(6, 3), facecolor='#282434')
-        self.axs_subscription.tick_params(colors='white')
-        for spine in self.axs_subscription.spines.values():
-            spine.set_edgecolor('white')
-        self.canvas_subscription = FigureCanvasTkAgg(self.fig_subscription, master=self.subscription_frame)
-        self.canvas_subscription.draw()
-        self.canvas_subscription.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
-
-    def create_shipping_graph(self):
-        self.shipping_frame = tk.Frame(self.app, bg='#282434')
-        self.shipping_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        self.fig_shipping, self.axs_shipping = plt.subplots(figsize=(6, 3), facecolor='#282434')
-        self.axs_shipping.tick_params(colors='white')
-        for spine in self.axs_shipping.spines.values():
-            spine.set_edgecolor('white')
-        self.canvas_shipping = FigureCanvasTkAgg(self.fig_shipping, master=self.shipping_frame)
-        self.canvas_shipping.draw()
-        self.canvas_shipping.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
     def update_labels(self, total_customers, average_rating, total_purchases):
         """Update labels for total customers, average rating, and total purchases."""

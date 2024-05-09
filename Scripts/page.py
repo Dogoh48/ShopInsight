@@ -4,6 +4,7 @@ class Page:
         self.controller = controller
         self.model = model
         self.view = view
+        self.graph_manager = self.view.graph_manager
         self.current_page = None
 
     def switch_to_page(self, page_name):
@@ -13,10 +14,10 @@ class Page:
             self.controller.update_graphs()
 
     def destroy_current_page(self):
-        if self.view.middle_frame:
-            self.view.middle_frame.destroy()
-        if self.view.shipping_frame:
-            self.view.shipping_frame.destroy()
+        if self.graph_manager.middle_frame:
+            self.graph_manager.middle_frame.destroy()
+        if self.graph_manager.bottom_frame:
+            self.graph_manager.bottom_frame.destroy()
 
 class HomePage(Page):
     def __init__(self, app, controller, model, view):
@@ -25,7 +26,11 @@ class HomePage(Page):
         self.init_home_page()
 
     def init_home_page(self):
-        self.view.create_graph_area()
+        self.graph_manager.create_graph_area()
+        self.graph_manager.create_category_graph()
+        self.graph_manager.create_gender_graph()
+        self.graph_manager.create_subscription_graph()
+        self.graph_manager.create_shipping_graph()
 
 class ProductsPage(Page):
     def __init__(self, app, controller, model, view):
