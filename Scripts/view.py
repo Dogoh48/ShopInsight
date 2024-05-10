@@ -1,8 +1,7 @@
 import tkinter as tk
-from tkinter import ttk
-from widgets import HeaderFrame, SidebarFrame
-from graph import GraphManager
-from page import HomePage, ProductsPage
+from UI_Components.widgets import HeaderFrame, SidebarFrame
+from UI_Components.graph import GraphManager
+from UI_Components.page import HomePage, ProductsPage
 
 class DashboardUI:
     def __init__(self, controller, app, model):
