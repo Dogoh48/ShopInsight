@@ -1,14 +1,20 @@
+"""
+widgets.py: This module contains custom tkinter Frame classes for the header and sidebar sections of the application.
+"""
 import tkinter as tk
 from tkinter import ttk
 
 class HeaderFrame(tk.Frame):
+    """A custom tkinter Frame for the header section of the application."""
     def __init__(self, app, model):
+        """Initialize the HeaderFrame."""
         super().__init__(app, bg='#282434', highlightbackground='black', highlightthickness=1)
         self.model = model
         self.configure(height=70)
         self.create_widgets()
 
     def create_widgets(self):
+        """Create and configure the widgets inside the HeaderFrame."""
         emoji_photo = self.model.load_image("dashboard.png")
         emoji_label = tk.Label(self, image=emoji_photo, bg='#282434')
         emoji_label.image = emoji_photo
@@ -23,7 +29,9 @@ class HeaderFrame(tk.Frame):
         self.total_purchases_label.pack(side=tk.RIGHT, padx=10)
 
 class SidebarFrame(tk.Frame):
+    """A custom tkinter Frame for the sidebar section of the application."""
     def __init__(self, app, controller, model, view):
+        """Initialize the SidebarFrame."""
         super().__init__(app, bg='#282434')
         self.controller = controller
         self.model = model
@@ -31,22 +39,19 @@ class SidebarFrame(tk.Frame):
         self.create_widgets()
 
     def create_widgets(self):
+        """Create and configure the widgets inside the SidebarFrame."""
         frame = tk.Frame(self, bg='#282434')
         frame.pack(fill=tk.BOTH, padx=10, pady=10, expand=True)
-        btn_box_frame = tk.Frame(frame, bg='black')
+        btn_box_frame = tk.Frame(frame, bg='black', highlightbackground="red", highlightcolor="red", highlightthickness=1, bd=0)
         btn_box_frame.pack(fill=tk.BOTH, padx=10)
-        filter_box_frame = tk.Frame(frame, bg='black')
+        filter_box_frame = tk.Frame(frame, bg='black', highlightbackground="red", highlightcolor="red", highlightthickness=1, bd=0)
         filter_box_frame.pack(fill=tk.BOTH, padx=10, pady=10, expand=True)
         home_btn = tk.Button(btn_box_frame, text=' 🏠 Home', bg='black', fg='white', font=('Bold', 12), borderwidth=0, highlightthickness=0, anchor='w', command=self.view.switch_to_home_page)
         home_btn.pack(fill=tk.X, pady=10)
         products_btn = tk.Button(btn_box_frame, text=' 📦 Products', bg='black', fg='white', font=('Bold', 12), borderwidth=0, highlightthickness=0, anchor='w', command=self.view.switch_to_products_page)
         products_btn.pack(fill=tk.X, pady=10)
-        locations_btn = tk.Button(btn_box_frame, text=' 🌍 Locations', bg='black', fg='white', font=('Bold', 12), borderwidth=0, highlightthickness=0, anchor='w', command=self.view.switch_to_products_page)
-        locations_btn.pack(fill=tk.X, pady=10)
-        attr_explore_btn = tk.Button(btn_box_frame, text=' 🔍 Attribute Explorer', bg='black', fg='white', font=('Bold', 12), borderwidth=0, highlightthickness=0, anchor='w', command=self.view.switch_to_products_page)
+        attr_explore_btn = tk.Button(btn_box_frame, text=' 🔍 Attribute Explorer', bg='black', fg='white', font=('Bold', 12), borderwidth=0, highlightthickness=0, anchor='w', command=self.view.switch_to_attribute_exploerer_page)
         attr_explore_btn.pack(fill=tk.X, pady=10)
-        
-        # Return to Default button
         default_btn = tk.Button(btn_box_frame, text=' 🔄 Return to Default', bg='black', fg='white', font=('Bold', 12), borderwidth=0, highlightthickness=0, anchor='w', command=self.controller.reset_filters)
         default_btn.pack(fill=tk.X, pady=10)
 
