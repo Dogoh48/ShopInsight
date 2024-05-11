@@ -16,3 +16,9 @@ ShopperTrends-Analyzer is a data analysis and visualization tool designed to pro
 - **Attribute Explorer:** Investigate relationships between different attributes and generate custom visualizations to uncover hidden patterns and trends.
 - **Descriptive Statistics:** Access descriptive statistics for various attributes, providing a comprehensive overview of the dataset.
 
+## Design Pattern
+
+ShopperTrends-Analyzer uses the MVC (Model-View-Controller) design pattern, separating the application logic, data, and presentation layers. This architectural approach promotes modularity, scalability, and maintainability.
+
+## Documents 
+[How to Install](https://github.com/Dogoh48/ShopperTrends-Analyzer/wiki/How-to-Install).
