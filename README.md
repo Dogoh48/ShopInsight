@@ -19,7 +19,9 @@ ShopperTrends-Analyzer is a data analysis and visualization tool designed to pro
 ShopperTrends-Analyzer uses the MVC (Model-View-Controller) design pattern, separating the application logic, data, and presentation layers. This architectural approach promotes modularity, scalability, and maintainability.
 
 ## Documents 
-[How to Install](https://github.com/Dogoh48/ShopperTrends-Analyzer/wiki/How-to-Install).
+- [Development Plan](https://github.com/Dogoh48/ShopperTrends-Analyzer/wiki/Development-Plan)
+- [Installation](https://github.com/Dogoh48/ShopperTrends-Analyzer/wiki/How-to-Install)
+- [UML Diagrams & Sequence Diagrams](https://github.com/Dogoh48/ShopperTrends-Analyzer/wiki/UML-Diagrams-&-Sequence-Diagrams)
 
 ## Data Source
 
