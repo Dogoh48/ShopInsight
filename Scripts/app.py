@@ -1,8 +1,12 @@
+"""
+app.py: Tkinter application for data visualization.
+"""
 import tkinter as tk
 from controller import DashboardController
 
 class App(tk.Tk):
-    def __init__(self, *args):
+    """Main application class."""
+    def __init__(self):
         """Initialize the application."""
         super().__init__()
         self.controller = DashboardController(self)

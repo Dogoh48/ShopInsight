@@ -1,8 +1,12 @@
+"""
+model.py: Module for managing and processing data.
+"""
+import os
 import pandas as pd
 from PIL import Image, ImageTk
-import os
 
 class DashboardModel:
+    """Class for loading and filtering dataset."""
     def __init__(self):
         """Initialize DashboardModel with data from a CSV file."""
         self.setup_directories()
@@ -37,3 +41,8 @@ class DashboardModel:
         image = Image.open(image_path)
         image = image.resize((50, 50))
         return ImageTk.PhotoImage(image)
+
+    def get_row_by_item_name(self, item_name):
+        """Retrieve the row corresponding to the given item_name."""
+        row = self.df[self.df['Item Purchased'] == item_name]
+        return row if not row.empty else None
