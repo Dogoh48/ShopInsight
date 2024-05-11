@@ -22,6 +22,7 @@ ShopperTrends-Analyzer uses the MVC (Model-View-Controller) design pattern, sepa
 - [Development Plan](https://github.com/Dogoh48/ShopperTrends-Analyzer/wiki/Development-Plan)
 - [Installation](https://github.com/Dogoh48/ShopperTrends-Analyzer/wiki/How-to-Install)
 - [UML Diagrams & Sequence Diagrams](https://github.com/Dogoh48/ShopperTrends-Analyzer/wiki/UML-Diagrams-&-Sequence-Diagrams)
+- [UI Preview](https://github.com/Dogoh48/ShopperTrends-Analyzer/wiki/UI-Preview)
 
 ## Data Source
 
