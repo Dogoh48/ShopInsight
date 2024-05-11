@@ -23,4 +23,4 @@ ShopperTrends-Analyzer uses the MVC (Model-View-Controller) design pattern, sepa
 
 ## Data Source
 
-The dataset used by ShopperTrends-Analyzer is sourced from [Customer Shopping Trends Dataset](https://www.kaggle.com/datasets/iamsouravbanerjee/customer-shopping-trends-dataset) on Kaggle. We extend our gratitude to the dataset provider, Sourav Banerjee, for compiling and sharing this valuable resource.
+Credit to Sourav Banerjee, [Customer Shopping Trends Dataset](https://www.kaggle.com/datasets/iamsouravbanerjee/customer-shopping-trends-dataset)
